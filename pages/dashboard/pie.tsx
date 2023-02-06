@@ -13,7 +13,7 @@ function Pie() {
         </Text>
         <Title order={1}>Pie</Title>
 
-        <PieChart data={pieChartData} />
+        <PieChart data={pieChartData} dashbaord={false} fill={false} />
       </Paper>
     </Layout>
   );

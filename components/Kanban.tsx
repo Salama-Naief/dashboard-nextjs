@@ -68,8 +68,10 @@ function Kanban({ title, keyField, color }: Props) {
       >
         {kanbanItems
           .filter((item: KANBANITEM) => item.Status === keyField)
-          .map((item: KANBANITEM) => (
-            <KanbanItem kanban={item} />
+          .map((item: KANBANITEM, index) => (
+            <div key={index}>
+              <KanbanItem kanban={item} />
+            </div>
           ))}
       </div>
     </Paper>

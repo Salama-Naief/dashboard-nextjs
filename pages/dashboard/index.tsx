@@ -383,11 +383,16 @@ function Home() {
               </Title>
               <Group>
                 {medicalproBranding.leaders.map((item, index) => (
-                  <Popover width={200} position="bottom" withArrow shadow="md">
+                  <Popover
+                    key={index}
+                    width={200}
+                    position="bottom"
+                    withArrow
+                    shadow="md"
+                  >
                     <Popover.Target>
                       <Avatar
                         src={item.image.src}
-                        key={index}
                         radius="xl"
                         style={{ cursor: "pointer" }}
                       />
@@ -403,12 +408,15 @@ function Home() {
               </Group>
               <div className="flex items-center my-4 -space-x-3">
                 {medicalproBranding.leaders.map((item, index) => (
-                  <Popover width={200} position="bottom" withArrow shadow="md">
+                  <Popover
+                    key={index}
+                    width={200}
+                    position="bottom"
+                    withArrow
+                    shadow="md"
+                  >
                     <Popover.Target>
-                      <div
-                        key={index}
-                        className="border border-blue-600 rounded-full cursor-pointer"
-                      >
+                      <div className="border border-blue-600 rounded-full cursor-pointer">
                         <Avatar src={item.image.src} radius="xl" />
                       </div>
                     </Popover.Target>
