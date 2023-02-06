@@ -538,6 +538,16 @@ export const lineChartData = [
     ],
   },
 ];
+export const stackedChart = [
+  { x: "Jan", budget: 111.1, expense: 111.1 },
+  { x: "Feb", budget: 156, expense: 143.4 },
+  { x: "Mar", budget: 120, expense: 110 },
+  { x: "Apr", budget: 163, expense: 116 },
+  { x: "May", budget: 130, expense: 100 },
+  { x: "Jun", budget: 120, expense: 120 },
+  { x: "Jul", budget: 180, expense: 160 },
+  { x: "Aug", budget: 136, expense: 142 },
+];
 export const stackedChartData = [
   [
     { x: "Jan", budget: 111.1, expense: 111.1 },

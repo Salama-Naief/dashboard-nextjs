@@ -1,7 +1,7 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useEffect, useState } from "react";
 
-const LineChart = ({ data, dashboard }) => {
+const LineChart = ({ data, dashboard, lables, area }) => {
   const [screenWidth, setScreenWidth] = useState(0);
   useEffect(() => {
     setScreenWidth(window.screen.width);
@@ -11,7 +11,7 @@ const LineChart = ({ data, dashboard }) => {
       data={data}
       margin={{
         top: dashboard ? 10 : 50,
-        right: dashboard ? 30 : screenWidth > 768 ? 110 : 20,
+        right: dashboard | lables ? 30 : screenWidth > 768 ? 110 : 20,
         bottom: dashboard ? 10 : 100,
         left: dashboard ? 10 : 60,
       }}
@@ -27,15 +27,20 @@ const LineChart = ({ data, dashboard }) => {
       curve="monotoneX"
       axisTop={null}
       axisRight={null}
-      axisBottom={{
-        orient: "bottom",
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: dashboard ? "" : "transportation",
-        legendOffset: dashboard ? 0 : 36,
-        legendPosition: "middle",
-      }}
+      enableArea={area ? true : false}
+      axisBottom={
+        area
+          ? null
+          : {
+              orient: "bottom",
+              tickSize: 5,
+              tickPadding: 5,
+              tickRotation: 0,
+              legend: dashboard | lables ? "" : "transportation",
+              legendOffset: dashboard | lables ? 0 : 36,
+              legendPosition: "middle",
+            }
+      }
       axisLeft={
         dashboard
           ? null
@@ -44,7 +49,7 @@ const LineChart = ({ data, dashboard }) => {
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
-              legend: dashboard ? "" : "count",
+              legend: dashboard | lables ? "" : "count",
               legendOffset: dashboard ? -10 : -40,
               legendPosition: "middle",
             }
@@ -59,7 +64,7 @@ const LineChart = ({ data, dashboard }) => {
       pointLabelYOffset={-12}
       useMesh={true}
       legends={
-        dashboard
+        dashboard | lables
           ? []
           : [
               {

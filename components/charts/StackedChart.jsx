@@ -1,7 +1,8 @@
 import { ResponsiveBar } from "@nivo/bar";
 import React from "react";
-import { stackedChartData } from "../../utils/chartsData";
-function StackedChart({ data, Earnings }) {
+import { earningData } from "../../utils/data/dummy";
+
+function StackedChart({ data, stackedChart, Earnings }) {
   return (
     <ResponsiveBar
       data={data}
@@ -10,7 +11,7 @@ function StackedChart({ data, Earnings }) {
       margin={{
         top: 50,
         right: Earnings ? 0 : 50,
-        bottom: Earnings ? 10 : 20,
+        bottom: Earnings ? 10 : stackedChart ? 130 : 20,
         left: Earnings ? 0 : 30,
       }}
       padding={0.3}
@@ -89,7 +90,34 @@ function StackedChart({ data, Earnings }) {
         from: "color",
         modifiers: [["darker", 1.6]],
       }}
-      legends={[]}
+      legends={
+        stackedChart
+          ? [
+              {
+                dataFrom: "keys",
+                anchor: "bottom",
+                direction: "row",
+                justify: false,
+                translateX: 20,
+                translateY: 54,
+                itemsSpacing: 2,
+                itemWidth: 100,
+                itemHeight: 20,
+                itemDirection: "left-to-right",
+                itemOpacity: 0.85,
+                symbolSize: 18,
+                effects: [
+                  {
+                    on: "hover",
+                    style: {
+                      itemOpacity: 1,
+                    },
+                  },
+                ],
+              },
+            ]
+          : []
+      }
       role="application"
       ariaLabel="Nivo bar chart demo"
       barAriaLabel={function (e) {

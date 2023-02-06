@@ -12,7 +12,7 @@ const AreaChart = ({ data /* see data tab */ }) => {
     <ResponsiveStream
       data={data}
       keys={["Raoul", "Josiane", "Marcel", "René", "Paul", "Jacques"]}
-      margin={{ top: 50, right: 0, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 10, bottom: 100, left: 60 }}
       axisTop={null}
       axisRight={null}
       axisBottom={{

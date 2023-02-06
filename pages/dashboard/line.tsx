@@ -13,7 +13,7 @@ function Line() {
         </Text>
         <Title order={1}>Line</Title>
 
-        <LineChart data={lineChartData} />
+        <LineChart data={lineChartData} lables={false} dashboard={false} />
       </Paper>
     </Layout>
   );
